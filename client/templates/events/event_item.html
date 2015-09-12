@@ -1,0 +1,12 @@
+<template name="eventItem">
+	<div class="event">
+		<div class="event-content">
+			<h3><a href="{{pathFor 'eventPage'}}">{{name}}</a><span>{{domain}}</span></h3>
+			<p>
+				Créé par {{author}}
+				{{#if ownPost}}<a href="{{pathFor 'eventEdit'}}">Editer</a>{{/if}}
+			</p>
+		</div>
+		<a href="{{pathFor 'eventPage'}}" class="discuss btn btn-default">Ouvrir</a>
+	</div>
+</template>

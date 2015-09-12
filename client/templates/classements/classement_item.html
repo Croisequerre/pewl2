@@ -1,0 +1,28 @@
+<template name="classementItem">
+	<div>
+		<div class="panel panel-default">
+			<!-- Default panel contents -->
+			<div class="panel-heading">
+				Résultats
+				{{#if currentUser}}
+					<tr><td>
+			  			<button type="button" class="btn btn-danger btn-xs classement-delete" aria-label="Trash classement">
+		  					<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+						</button>
+					</td></tr>
+				{{/if}}
+			</div>
+
+			<table class="table">
+				
+					<tr><th>Tireur</th><th>PV</th><th>GA</th></tr>
+					{{#each results}}
+					<tr>
+						<td>{{name}}</td><td>{{pv}}</td><td>{{ga}}</td>
+					</tr>
+					{{/each}}
+				
+			</table>
+		</div>
+	</div>
+</template>

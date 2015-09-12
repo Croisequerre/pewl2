@@ -1,0 +1,25 @@
+<template name="eventDetail">
+	<div class="event">
+		<div class="event-content">
+			<h3>{{name}}</h3>
+			<p>
+				Créé par {{author}}
+				{{#if ownPost}}<a href="{{pathFor 'eventEdit'}}">Editer</a>{{/if}}
+			</p>
+		</div>
+		{{#if currentUser}}<a class="btn btn-primary phase-creer" href="#">Ajouter une phase</a>{{/if}}
+		<div class="clear-both"></div>
+		<div>
+			<hr/>
+			
+			{{#if hasPhases}}
+				{{#each phases}}
+					{{> phaseItem}}
+					<hr/>
+				{{/each}}
+			{{else}}
+				<p>Aucune phase dans cet événement.</p>
+			{{/if}}
+		</div>
+	</div>
+</template>

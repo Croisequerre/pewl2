@@ -1,0 +1,19 @@
+<template name="eventSubmit">
+	<form class="main form page">
+		<div class="form-group {{errorClass 'name'}}">
+			<label class="control-label" for="name">Nom</label>
+			<div class="controls">
+				<input name="name" id="name" type="text" value="" placeholder="Nommez votre événement" class="form-control"/>
+				<span class="help-block">{{errorMessage 'name'}}</span>
+			</div>
+		</div>
+		<div class="form-group {{errorClass 'url'}}">
+			<label class="control-label" for="url">URL</label>
+			<div class="controls">
+				<input name="url" id="url" type="text" value="" placeholder="Votre URL" class="form-control"/>
+				<span class="help-block">{{errorMessage 'url'}}</span>
+			</div>
+		</div>
+		<input type="submit" value="Valider" class="btn btn-primary"/>
+	</form>
+</template>
