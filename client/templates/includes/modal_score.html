@@ -1,0 +1,60 @@
+<template name="modalScore">
+
+<div class="modal" id="modalScore" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">Saisie de score</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="tireur-jaune-id" class="control-label">Tireur Jaune</label>
+                  <!--div class="dropdown">
+                    <a class="btn btn-default dropdown-toggle btn-select" data-toggle="dropdown" id="tireur-jaune-id" href="#">Tireur Jaune<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        {{#each tireursInPoule}}
+                          <li><a href="#" id="{{id}}">{{name}}</a></li>
+                        {{/each}}
+                    </ul>
+                  </div-->
+                  <input type="text" class="form-control" id="tireur-jaune-id" placeholder="N° de ligne">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="tireur-bleu-id" class="control-label">Tireur Bleu</label>
+                  <input type="text" class="form-control" id="tireur-bleu-id" placeholder="N° de ligne">
+                </div>
+              </div>
+            </div><!-- row -->
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="tireur-jaune-score" class="control-label">Score Jaune</label>
+                  <input type="text" class="form-control" id="tireur-jaune-score">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="tireur-bleu-score" class="control-label">Score Bleu</label>
+                  <input type="text" class="form-control" id="tireur-bleu-score">
+                </div>
+              </div>
+            </div><!-- row -->
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+        <button type="button" class="btn btn-primary" id="save">Enregistrer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</template>
