@@ -7,7 +7,11 @@ Template.classementItem.helpers({
 
 Template.classementItem.events({
     "click .classement-delete": function () {
-    	// Attention : this._id est l'id de la phase
+    	// Attention : this._id est l'id de la phase (pas encore compris pourquoi)
       Meteor.call("classementDelete", this._id);
+    },
+    "click .classement-recalculate": function () {
+    	// Attention : this._id est l'id de la phase (pas encore compris pourquoi)
+      Meteor.call("classementRecalculate", this._id);
     }
 });

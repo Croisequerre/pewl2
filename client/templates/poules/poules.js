@@ -8,23 +8,16 @@ Template.poule.events({
     },
     "click .btn-ajout-tireur": function() {
       var name = prompt("Donner un nom au tireur : ", "Tireur");
-
       if (name != null) {
           Meteor.call("addTireur", this._id, name);
       }
     },
     "click .btn-score": function() {
-      var score = prompt("Entrez un score : ", "j1,j2,score1,score2");
+      //var score = prompt("Entrez un score : ", "j1,j2,score1,score2");
+      $('#modalScore').data("poule-id",this._id);
+      $('#modalScore').modal('show');
 
-      if (score != null) {
-          var t = score.split(',');
-          if (t.length != 4) {
-            console.log("Erreur dans la saisie");
-            console.log(t);
-          } else {
-            Meteor.call("setScore", this._id, t[0], t[1], t[2], t[3]);
-          }
-      }
+      // Le traitement de la saisie a lieu dans modal_score.js
     }
   });
 

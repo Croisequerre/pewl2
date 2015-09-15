@@ -234,3 +234,6 @@ body {
   position: relative;
   top: -10px;
 }
+.edit-name {
+  cursor: pointer;
+}
