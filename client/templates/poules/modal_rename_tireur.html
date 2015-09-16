@@ -1,0 +1,26 @@
+<template name="modalRenameTireur">
+
+<div class="modal" id="modalRenameTireur" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">Ajouter un tireur</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="tireur-nom" class="control-label">Nom du tireur</label>
+            <input type="text" class="form-control" id="tireur-nom" placeholder="Comment s'appelle-t-il ?">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+        <button type="button" class="btn btn-primary" id="save">Créer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</template>
