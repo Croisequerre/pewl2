@@ -7,10 +7,12 @@ Template.poule.events({
       Meteor.call("deletePoule", this._id);
     },
     "click .btn-ajout-tireur": function() {
-      var name = prompt("Donner un nom au tireur : ", "Tireur");
-      if (name != null) {
-          Meteor.call("addTireur", this._id, name);
-      }
+      $('#modalRenameTireur').data("poule-id",this._id);
+      $('#modalRenameTireur').modal('show');
+      //var name = prompt("Donner un nom au tireur : ", "Tireur");
+      //if (name != null) {
+      //    Meteor.call("addTireur", this._id, name);
+      //}
     },
     "click .btn-score": function() {
       //var score = prompt("Entrez un score : ", "j1,j2,score1,score2");
