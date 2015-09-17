@@ -18,7 +18,12 @@ Template.modalScore.helpers({
 */
 
 Template.modalScore.events({
-  'click #save': function(e) {
+  'submit #form-score': function(e) {
+    e.preventDefault();
+    // On simule à la place un clic sur le bouton =)
+    $("#save-score").click();
+  },
+  'click #save-score': function(e) {
     e.preventDefault();
     
     var t1 = $('#tireur-jaune-id').val();
@@ -37,5 +42,8 @@ Template.modalScore.events({
     Meteor.call("setScore", pouleId, t1, t2, scoreT1, scoreT2);
 
     $('#modalScore').modal('hide');
+  },
+  'shown.bs.modal #modalScore': function(e){
+    $('#tireur-jaune-id').focus();
   }
 });
