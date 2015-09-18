@@ -202,17 +202,25 @@ body {
   border-bottom: solid 1px #ddd;
   border-left: solid 1px #ddd;
 }
+.cell-bottom-right {
+  border-bottom: solid 1px #ddd;
+  border-right: solid 1px #ddd;
+}
 .cell-top {
   border-top: solid 1px #ddd;
 }
 .cell-right {
   border-right: solid 1px #ddd;
 }
+.cell-left {
+  border-left: solid 1px #ddd;
+}
 .poule-cell-name {
   width: 170px;
   text-align: left;
 }
-.poule-cell-score {
+.cell-title {
+  font-weight: bold;
 }
 .poule-cell-cell {
   width: 30px;
@@ -222,6 +230,12 @@ body {
 }
 .caseGrise {
   background-color: #ddd;
+}
+.case-blanche {
+  background-color: #fff;
+}
+.case-bleue {
+  background-color: #cec;
 }
 .clear-both {
   clear: both;
@@ -234,6 +248,6 @@ body {
   position: relative;
   top: -10px;
 }
-.edit-name {
+.edit-name, .cell-click-score{
   cursor: pointer;
 }

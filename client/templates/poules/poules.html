@@ -12,15 +12,42 @@
 
 	  	<div class="poule-table"> <!-- la table de la poule -->
 
-	  		<div class="table-row">
-	  			{{> tabletitles}}
+			{{#each formatedEntries}}
+		  		<div class="table-row">
+		  			<div class="poule-cell poule-cell-case cell-bottom-left {{#if isFirstLine index}}cell-top cell-title{{/if}}">{{index}}</div>
+					<div class="poule-cell poule-cell-name cell-bottom-left cell-right {{#if isFirstLine index}}cell-top cell-title{{else}} edit-name{{/if}}">{{tireur}}</div>
+					<div class="poule-cell separator"></div>
+					{{#each results}}
+						{{#if isDiese val}}
+							<div class="poule-cell poule-cell-case cell-bottom-left caseGrise"></div>
+						{{else}}
+							<div class="poule-cell case-blanche poule-cell-case cell-bottom-right {{#if isNotFirstLineInResults lig}}cell-click-score{{else}}cell-top cell-title{{/if}} {{#if isFirstColInResults col}}cell-left{{/if}}" id="{{pouleId}}-{{lig}}-{{col}}">{{val}}<span class="state">{{state}}</span></div>
+						{{/if}}
+					{{/each}}
+					<div class="poule-cell separator"></div>
+					<div class="poule-cell poule-cell-case cell-bottom-left {{#if isFirstLine index}}cell-top cell-title{{/if}}">{{ratio}}</div>
+					<div class="poule-cell poule-cell-case cell-bottom-left {{#if isFirstLine index}}cell-top cell-title{{/if}}">{{pv}}</div>
+					<div class="poule-cell poule-cell-case cell-bottom-left {{#if isFirstLine index}}cell-top cell-title{{/if}}">{{td}}</div>
+					<div class="poule-cell poule-cell-case cell-bottom-left {{#if isFirstLine index}}cell-top cell-title{{/if}}">{{tr}}</div>
+					<div class="poule-cell poule-cell-case cell-bottom-left cell-right {{#if isFirstLine index}}cell-top cell-title{{/if}}">{{ga}}</div>
+					<div class="poule-cell separator"></div>
+					<div class="poule-cell poule-cell-case cell-bottom-left cell-right {{#if isFirstLine index}}cell-top cell-title{{/if}}">{{place}}</div>
+					<div class="clear-both"></div>
+
+					{{> modalScore}}
+				</div>
+			{{/each}}
+
+	  		<!-- div class="table-row">
+	  			{ {> tabletitles}}
 		  	</div>
 
-			{{#each entries}}
+			{ {#each entries}}
 		  		<div class="table-row">
-					{{> tableentry}}
+					{ {> tableentry}}
 		  		</div>
-			{{/each}}
+			{ {/each}}
+			-->
 
 		  	<div class="table-row">
 		  		<div class="poule-cell poule-cell-name cell-bottom-left cell-right">

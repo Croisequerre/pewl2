@@ -20,7 +20,7 @@ Template.modalScore.helpers({
 Template.modalScore.events({
   'submit #form-score': function(e) {
     e.preventDefault();
-    // On simule à la place un clic sur le bouton =)
+    // On simule à la place du submit un clic sur le bouton
     $("#save-score").click();
   },
   'click #save-score': function(e) {
@@ -44,6 +44,14 @@ Template.modalScore.events({
     $('#modalScore').modal('hide');
   },
   'shown.bs.modal #modalScore': function(e){
-    $('#tireur-jaune-id').focus();
+    var jaune = $("#modalScore").data("tireur-jaune");
+    var bleu = $("#modalScore").data("tireur-bleu");
+    $('#tireur-jaune-id').val(jaune);
+    $('#tireur-bleu-id').val(bleu);
+    if (jaune.trim() !== "") {
+      $('#tireur-jaune-score').focus();  
+    } else {
+      $('#tireur-jaune-id').focus();  
+    }
   }
 });
