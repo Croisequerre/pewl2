@@ -72,7 +72,7 @@ body {
         color: #aaaaaa; }
     .event .event-content p {
       margin: 0; }
-  .event .discuss, .event .phase-creer {
+  .event .discuss {
     display: block;
     float: right;
     margin-top: 7px; }
@@ -137,7 +137,9 @@ body {
   90% {opacity: 1;}
   100% {opacity: 0;}
 }
-
+.spacer-top {
+  padding-top: 20px;
+}
 .errors{
   position: fixed;
   z-index: 10000;
@@ -251,3 +253,19 @@ body {
 .edit-name, .cell-click-score{
   cursor: pointer;
 }
+
+
+/* bootstrap hack: fix content width inside hidden tabs */
+/* https://github.com/kenwheeler/slick/issues/619 */
+/* Sans cela, les fenêtres modales ne s'affichent pas */
+/* à cause des onglets */
+.tab-content > .tab-pane,
+.pill-content > .pill-pane {
+    display: block;     /* undo display:none          */
+    height: 0;          /* height:0 is also invisible */ 
+    overflow-y: hidden; /* no-overflow                */
+}
+.tab-content > .active,
+.pill-content > .active {
+    height: auto;       /* let the content decide it  */
+} /* bootstrap hack end */

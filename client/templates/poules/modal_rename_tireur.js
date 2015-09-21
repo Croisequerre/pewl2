@@ -9,9 +9,9 @@ Template.modalRenameTireur.events({
   'click #save-name': function(e) {
     e.preventDefault();
     
-    var name = $('#tireur-nom').val();
 
     var pouleId = $("#modalRenameTireur").data("poule-id");
+    var tireurId = $('#modalRenameTireur').data("tireur-id");
 
     // RAZ des champs
     $('#tireur-nom').val("");
@@ -21,8 +21,8 @@ Template.modalRenameTireur.events({
     // Sélection de l'action par son nom : un peu bof
     // TODO : l'ajout du tireur ne devrait plus passer par là
     if (action === "addTireur") {
-    	if (name.trim() !== "") {
-			Meteor.call("addTireur", pouleId, name);
+    	if (tireurId.trim() !== "") {
+			   Meteor.call("addTireur", pouleId, tireurId);
     	}
     } else if (action ==="renameTireur") {
 	    var tireurId = $("#modalRenameTireur").data("tireur-id");
@@ -44,11 +44,38 @@ Template.modalRenameTireur.events({
 
   	// On met le focus sur le champ "nom" de la fenêtre
     $('#tireur-nom').focus();
+  },
+  "autocompleteselect #tireur-nom": function(e, t, doc) {
+    // On vide le champ de sélection
+    $("#tireur-nom").val(doc.nom+" "+doc.prenom);
+    $('#modalRenameTireur').data("tireur-id", doc._id);
+
+    // On met le focus sur le champ "tireur-nom-subscribe" de la fenêtre
+    $('#tireur-nom-subscribe').focus();
   }
 });
 
 Template.modalRenameTireur.helpers({
-	pouet: function() {
-		console.log("pouet");
-	}
+  settings: function() {
+    return {
+      position: "bottom",
+      limit: 5,
+      rules: [
+        {
+          token: '@',
+          collection: Tireurs,
+          field: "nom",
+          template: Template.userPill,
+          noMatchTemplate: Template.noMatch
+        },
+        {
+          token: '&',
+          collection: Tireurs,
+          field: "prenom",
+          template: Template.userPill,
+          noMatchTemplate: Template.noMatch
+        }
+      ]
+    };
+  }
 });

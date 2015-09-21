@@ -1,27 +1,25 @@
 <template name="phaseItem">
-	<div class="phase">
-		<div class="phase-content">
-			<h4>{{name}} ({{author}})</h4>
-		</div>
-		<div class="clear-both"></div>
-		<div class="poules-container">
-			{{#if currentUser}}<div><a class="btn btn-primary poule-creer" href="#">+Poule</a></div>{{/if}}
-			{{#if hasPoules}}
-				{{#each poules}}
-					{{> poule}}
-				{{/each}}
-			{{else}}
-				<p>Cette phase ne contient aucune poule</p>
-			{{/if}}
-			<div class="clear-both"></div>
-		</div>
-		<div class="classement-container">
-			{{#if hasClassement}}
-				{{> classementItem}}
-			{{else}}
-				{{#if currentUser}}<a class="btn btn-primary classement-creer" href="#">+Classement</a>{{/if}}
-				<p>Cette phase ne contient aucun classement</p>
-			{{/if}}
+	<div class="phase spacer-top container-fluid">
+		<div class="row">
+			<div class="col-md-8">
+				{{#if hasPoules}}
+					{{#each poules}}
+						{{> poule}}
+					{{/each}}
+				{{else}}
+					<p>Cette phase ne contient aucune poule</p>
+				{{/if}}
+				{{#if currentUser}}<div><a class="btn btn-primary poule-creer" href="#">+Poule</a></div>{{/if}}
+				<div class="clear-both"></div>
+			</div>
+			<div class="col-md-4">
+				{{#if hasClassement}}
+					{{> classementItem}}
+				{{else}}
+					{{#if currentUser}}<a class="btn btn-primary classement-creer" href="#">+Classement</a>{{/if}}
+					<p>Cette phase ne contient aucun classement</p>
+				{{/if}}
+			</div>
 		</div>
 	</div>
 </template>

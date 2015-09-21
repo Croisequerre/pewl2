@@ -1,21 +1,20 @@
 <template name="poule">
-	<div class="poule-container">
-	  	<div>
-	  		<h5>{{name}}
+	<div class="panel panel-default">
+		<div class="panel-heading">
+	  		<h5 class="panel-title">{{name}}
 	  		{{#if currentUser}}
 	  			<button type="button" class="btn btn-danger btn-xs poule-delete" aria-label="Trash poule">
   					<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
 				</button>
 			{{/if}}
 			</h5>
-	  	</div>
-
-	  	<div class="poule-table"> <!-- la table de la poule -->
+		</div>
+	  	<div class="panel-body poule-table"> <!-- la table de la poule -->
 
 			{{#each formatedEntries}}
 		  		<div class="table-row">
 		  			<div class="poule-cell poule-cell-case cell-bottom-left {{#if isFirstLine index}}cell-top cell-title{{/if}}">{{index}}</div>
-					<div class="poule-cell poule-cell-name cell-bottom-left cell-right {{#if isFirstLine index}}cell-top cell-title{{else}} edit-name{{/if}}">{{tireur}}</div>
+					<div class="poule-cell poule-cell-name cell-bottom-left cell-right {{#if isFirstLine index}}cell-top cell-title{{/if}}">{{tireur.nom}}&nbsp;{{tireur.prenom}}</div>
 					<div class="poule-cell separator"></div>
 					{{#each results}}
 						{{#if isDiese val}}
@@ -38,17 +37,6 @@
 				</div>
 			{{/each}}
 
-	  		<!-- div class="table-row">
-	  			{ {> tabletitles}}
-		  	</div>
-
-			{ {#each entries}}
-		  		<div class="table-row">
-					{ {> tableentry}}
-		  		</div>
-			{ {/each}}
-			-->
-
 		  	<div class="table-row">
 		  		<div class="poule-cell poule-cell-name cell-bottom-left cell-right">
 					{{#if currentUser}}<a class="btn btn-success btn-xs btn-ajout-tireur" href="#">+Tireur</a>{{/if}}		  			
@@ -65,45 +53,5 @@
 
 	  	{{> modalRenameTireur}}
 	  	
-	</div><!-- poule-container -->
-</template>
-
-<template name="tabletitles">
-	<div class="poule-cell poule-cell-name cell-bottom-left cell-top cell-right">NOM</div>
-	<div class="poule-cell separator"></div>
-	{{#each scoreTitles}}
-		<div class="poule-cell poule-cell-cell cell-bottom-left cell-right cell-top">{{this}}</div>
-	{{/each}}
-	<div class="poule-cell separator"></div>
-	<div class="poule-cell poule-cell-case cell-bottom-left cell-top">Co.</div>
-	<div class="poule-cell poule-cell-case cell-bottom-left cell-top">PV</div>
-	<div class="poule-cell poule-cell-case cell-bottom-left cell-top">TD</div>
-	<div class="poule-cell poule-cell-case cell-bottom-left cell-top">TR</div>
-	<div class="poule-cell poule-cell-case cell-bottom-left cell-top cell-right">GA</div>
-	<div class="poule-cell separator"></div>
-	<div class="poule-cell poule-cell-case cell-bottom-left cell-top cell-right">Pl.</div>
-	<div class="clear-both"></div>
-</template>
-
-<template name="tableentry">
-	<div class="poule-cell poule-cell-name edit-name cell-bottom-left cell-right">{{tireur}}</div>
-	<div class="poule-cell separator"></div>
-	{{#each results}}
-		{{#if isDiese val}}
-			<div class="poule-cell poule-cell-cell cell-bottom-left cell-right caseGrise"></div>
-		{{else}}
-			<div class="poule-cell poule-cell-cell cell-bottom-left cell-right">{{val}}<span class="state">{{state}}</span></div>
-		{{/if}}
-	{{/each}}
-	<div class="poule-cell separator"></div>
-	<div class="poule-cell poule-cell-case cell-bottom-left">{{ratio}}</div>
-	<div class="poule-cell poule-cell-case cell-bottom-left">{{pv}}</div>
-	<div class="poule-cell poule-cell-case cell-bottom-left">{{td}}</div>
-	<div class="poule-cell poule-cell-case cell-bottom-left">{{tr}}</div>
-	<div class="poule-cell poule-cell-case cell-bottom-left cell-right">{{ga}}</div>
-	<div class="poule-cell separator"></div>
-	<div class="poule-cell poule-cell-case cell-bottom-left cell-right">{{place}}</div>
-	<div class="clear-both"></div>
-
-	{{> modalScore}}
+	</div><!-- panel -->
 </template>

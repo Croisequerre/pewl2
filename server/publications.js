@@ -1,3 +1,6 @@
+// Sécurité : ne pas oublier d'autoriser la publication
+// des différentes collections
+
 Meteor.publish('events', function() {
 	return Events.find();
 });
@@ -12,4 +15,8 @@ Meteor.publish('poules', function() {
 
 Meteor.publish('classements', function() {
 	return Classements.find();
+});
+
+Meteor.publish('tireurs', function() {
+	return Tireurs.find();
 });

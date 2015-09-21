@@ -1,25 +1,52 @@
 <template name="eventDetail">
 	<div class="event">
-		<div class="event-content">
-			<h3>{{name}}</h3>
-			<p>
-				Créé par {{author}}
-				{{#if ownPost}}<a href="{{pathFor 'eventEdit'}}">Editer</a>{{/if}}
-			</p>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-8">
+					<div class="event-content">
+						<h3>{{name}}</h3>
+						<p>
+							Créé par {{author}}
+							{{#if ownPost}}<a href="{{pathFor 'eventEdit'}}">Editer</a>{{/if}}
+						</p>
+					</div>
+				</div>
+				<div class="col-md-4">
+					{{#if currentUser}}&nbsp;<!--a class="btn btn-primary" id="inscrire-tireurs" href="#">Inscrire des tireurs</a-->{{/if}}
+				</div>
+			</div>
 		</div>
-		{{#if currentUser}}<a class="btn btn-primary phase-creer" href="#">Ajouter une phase</a>{{/if}}
 		<div class="clear-both"></div>
-		<div>
-			<hr/>
-			
+		<div class="spacer-top">
+			<!-- Nav tabs -->
+			<ul class="nav nav-tabs" id="phases-tab" role="tablist">
+				{{#if hasPhases}}
+					{{#each phasesNames}}
+						<li role="presentation" class="">
+							<a href="#{{nom}}" aria-controls="home" role="tab" data-toggle="tab">{{nom}}</a>
+						</li>
+					{{/each}}
+				{{/if}}
+				<li role="presentation" class="">
+					<a class="btn btn-primary phase-creer" href="#">+Phase</a>
+				</li>
+			</ul>
+
+			<!-- Tab panes -->
 			{{#if hasPhases}}
+				<div class="tab-content">
 				{{#each phases}}
-					{{> phaseItem}}
-					<hr/>
+						<div role="tabpanel" class="tab-pane" id="{{name}}">
+							{{> phaseItem}}
+						</div>
 				{{/each}}
+				</div>			
 			{{else}}
 				<p>Aucune phase dans cet événement.</p>
 			{{/if}}
 		</div>
 	</div>
+
+	{{> modalSubscribeTireurs}}
+
 </template>

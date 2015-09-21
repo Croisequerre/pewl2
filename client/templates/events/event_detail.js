@@ -12,6 +12,16 @@ Template.eventDetail.helpers({
 	},
 	phases: function() {
 		return Phases.find({eventId: this._id});
+	},
+	phasesNames: function() {
+		var phases = Phases.find({eventId: this._id}).fetch();
+		var noms = new Array();
+		for (var i=0; i<phases.length; i++) {
+			noms.push({
+				nom: phases[i].name
+			});
+		}
+		return noms;
 	}
 });
 
@@ -35,5 +45,20 @@ Template.eventDetail.events({
 		      	}
 		    });
 		}
+	},
+	'click #inscrire-tireurs': function(e, template) {
+		e.preventDefault();
+
+		// Stockage de l'id de l'événement dans les data de la modale
+		$('#modalSubscribeTireurs').data('event-id', template.data._id);
+		// Ouverture de la fenêtre modale d'ajout de tireurs
+		$('#modalSubscribeTireurs').modal('show');
 	}
 });
+
+// Permet d'afficher par défaut le premier onglet des phases
+// Ne marche pas tout le temps.
+// TODO : trouver pourquoi et faire en sorte que ça fonctionne.
+Template.eventDetail.rendered = function() {
+	$("#phases-tab a:first").tab('show');
+};

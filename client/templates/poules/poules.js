@@ -24,23 +24,6 @@ Template.poule.events({
 
     // Le traitement de la saisie a lieu dans modal_score.js
   },
-  "click .edit-name": function(e, template) {
-    var oldName = e.target.innerHTML.trim();
-
-    // On récupère la poule dans laquelle se trouve le tireur que 
-    // l'on souhaite renommer
-    // Afin de récupérer son n° de poule
-    // BOF : est-ce vraiment utile de le faire ici ???
-    var p = Poules.find({"entries.id":this.id}).fetch();
-    $('#modalRenameTireur').data("poule-id",p[0]._id);
-    $('#modalRenameTireur').data("tireur-id",this.id);
-    $('#modalRenameTireur').data("old-name",oldName);
-    $('#modalRenameTireur').data("dialog-title","Renommer le tireur");
-    $('#modalRenameTireur').data("action","renameTireur");
-    $('#modalRenameTireur').modal('show');
-
-    // Le traitement de la saisie a lieu dans modal_rename_tireur.js
-  },
   "click .cell-click-score": function(e, template) {
     var t = e.target.id.split("-");
     $('#modalScore').data("poule-id",template.data._id);
@@ -100,10 +83,12 @@ Template.poule.helpers({
           col: ""+(j+1)
         });
       }
+      var t = Tireurs.findOne({_id:p.entries[i].tireur});
       tab.push({
         index: ""+(i+1),
         id: p.entries[i].id,
-        tireur: p.entries[i].tireur,
+        tireurId: p.entries[i].tireur,
+        tireur: t,
         results: p.entries[i].results,
         ratio: p.entries[i].ratio,
         pv: p.entries[i].pv,

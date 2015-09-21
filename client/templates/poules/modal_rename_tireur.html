@@ -10,8 +10,9 @@
       <div class="modal-body">
         <form id="form-name-tireur">
           <div class="form-group">
-            <label for="tireur-nom" class="control-label">Nom du tireur</label>
-            <input type="text" class="form-control" id="tireur-nom" placeholder="Comment s'appelle-t-il ?" autofocus>
+            <label for="tireur-nom" class="control-label">Chercher un tireur</label>
+            {{> inputAutocomplete settings=settings id="tireur-nom" class="form-control input-xlarge" placeholder="Ex: '@Letailleur' ou '&Catherine'"}}
+            <!-- input type="text" class="form-control" id="tireur-nom" placeholder="Comment s'appelle-t-il ?" autofocus -->
           </div>
         </form>
       </div>
