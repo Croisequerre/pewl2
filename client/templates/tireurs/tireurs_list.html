@@ -1,0 +1,30 @@
+<template name="tireursList">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">La liste des tireurs
+				{{#if currentUser}}
+					&nbsp;
+					<button type="button" id="tireur-add" class="btn btn-primary btn-sm" aria-label="Add tireur">
+						<span class="" aria-hidden="true">+</span>
+			  			<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+					</button>
+					&nbsp;			
+					<button type="button" id="random-tireur-add" class="btn btn-danger btn-sm" aria-label="Add random tireur">
+			  			<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+						<span class="" aria-hidden="true">?</span>
+					</button>
+				{{/if}}
+			</h3>
+		</div>
+		<div class="panel-body">
+			<div class="tireurs">
+				<ul>
+					{{#each tireurs}}
+						{{> tireurItem}}
+					{{/each}}
+				</ul>
+			</div>
+		</div>
+	</div>
+	{{> modalAddTireur}}
+</template>

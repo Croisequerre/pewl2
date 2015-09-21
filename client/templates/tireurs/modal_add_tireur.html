@@ -1,0 +1,77 @@
+<template name="modalAddTireur">
+
+<div class="modal" id="modalAddTireur" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="dialogTitle">Ajouter un tireur</h4>
+      </div>
+      <div class="modal-body">
+        <form id="form-name-tireur">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="tireur-nom" class="control-label">Nom</label>
+                  <input type="text" class="form-control" id="tireur-nom" placeholder="Ex: Dupont" autofocus>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="tireur-prenom" class="control-label">Prénom</label>
+                  <input type="text" class="form-control" id="tireur-prenom" placeholder="Ex: Hubert">
+                </div>
+              </div>
+            </div><!--row-->
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="tireur-naissance" class="control-label">Date de naissance</label>
+                  <div class='input-group date' id='tireur-naissance-datepicker'>
+                    <input type='text' id="tireur-naissance" class="form-control"  placeholder="jj/mm/aaaa"/>
+                    <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="tireur-licence" class="control-label">Licence</label>
+                  <input type="text" class="form-control" id="tireur-licence" placeholder="Ex: 6543210">
+                </div>
+              </div>
+            </div><!--row-->
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="tireur-sexe" class="control-label">Sexe</label>
+                  <div class="btn-group" data-toggle="buttons">
+                    <label class="btn btn-primary active" id="tireur-sexe-m">
+                      <input type="radio" name="options" autocomplete="off" checked> Masculin
+                    </label>
+                    <label class="btn btn-primary" id="tireur-sexe-f">
+                      <input type="radio" name="options" autocomplete="off"> Féminin
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+              </div>
+            </div><!--row-->
+
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+        <button type="button" class="btn btn-primary" id="save-tireur">Valider</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</template>

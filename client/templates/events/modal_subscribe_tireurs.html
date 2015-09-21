@@ -1,0 +1,52 @@
+<template name="modalSubscribeTireurs">
+
+<div class="modal" id="modalSubscribeTireurs" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Inscrire des tireurs</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="tireur-nom" class="control-label">Utilisez '@' pour rechercher par nom, '&' par prénom</label>
+
+            {{> inputAutocomplete settings=settings id="tireur-nom-subscribe" class="form-control input-xlarge" placeholder="Ex: '@Letailleur' ou '&Catherine'"}}
+
+          </div>
+          <div id="tireurs-inscrits">
+            <label class="control-label">Tireurs inscrits</label>
+            <ul id="liste-tireurs-inscrits">
+              {{#each tireursInscrits}}
+                {{> tireurInscrit}}
+              {{/each}}
+            </ul>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+        <button type="button" class="btn btn-primary" id="save-tireur-subscribe">Valider</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</template>
+
+<template name="userPill">
+    <span class="label label-success">{{nom}}&nbsp;{{prenom}}&nbsp;[{{licence}}]</span>
+</template>
+
+<template name="noMatch">
+    <span class="label label-warning">Aucun tireur trouvé</span>
+</template>
+
+<template name="tireurInscrit">
+    <li>
+      <span class="label label-default">
+        {{nom}}&nbsp;{{prenom}}&nbsp;[{{licence}}]&nbsp;<a href="#" delete-tireur-id="{{_id}}" class="delete-label-tireur">&times;</a>
+      </span>
+    </li>
+</template>
